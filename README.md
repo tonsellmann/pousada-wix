@@ -59,7 +59,10 @@ wix/
 tests/
   orcamento.test.js   18 testes das regras de preço
   falsos/cms.js       os itens como o módulo do Wix devolve
-scripts/previa.mjs    prévia local com um CMS em memória
+scripts/
+  cms-falso.mjs       um módulo do CMS de mentira, com o conteúdo de wix/conteudo.js
+  previa.mjs          prévia local com esse CMS
+  preparar-demonstracao.mjs   cópia do site que roda em qualquer pasta, sem Wix
 ```
 
 A página importa dois módulos que o Wix instala no site, em `site/js/wix/`: `queryItems` lê uma coleção e `insertItem` grava o pedido. Eles não estão no repositório porque são do Wix.
@@ -93,6 +96,8 @@ npm run previa
 ```
 
 A prévia abre em http://localhost:4330 com os quartos e as temporadas de `wix/conteudo.js`. Os pedidos ficam na memória da aba, em `window.pedidosDaPrevia`.
+
+Para a demonstração do portfólio, `node scripts/preparar-demonstracao.mjs <pasta>` grava uma cópia do site com caminhos relativos e o mesmo CMS de mentira.
 
 ## Publicar
 
