@@ -110,6 +110,10 @@ describe('orçamento', () => {
     expect(o.avisos).toEqual([{ temporada: 'Réveillon', texto: 'Pacote de cinco noites, com ceia da virada na beira do rio.' }]);
   });
 
+  it('não repete no orçamento a observação da temporada padrão, que fala da tabela inteira', () => {
+    expect(pedir({ chegada: '2027-05-10', saida: '2027-05-13' }).avisos).toEqual([]);
+  });
+
   it('explica cada dado que impede o orçamento', () => {
     expect(orcar({ temporadas, hoje, chegada: '2027-05-10', saida: '2027-05-12', hospedes: 2 })).toMatchObject({ ok: false, campo: 'quarto' });
     expect(pedir({ chegada: '', saida: '2027-05-12' })).toMatchObject({ campo: 'datas', mensagem: 'Escolha a data de chegada e a de saída.' });

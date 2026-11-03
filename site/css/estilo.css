@@ -120,6 +120,8 @@ input[aria-invalid='true'] { border-color: var(--vermelho); }
 
 /* A conta parece um recibo: cada linha é uma temporada, com a cor do nível de preço. */
 .conta { grid-area: conta; position: sticky; top: 5.5rem; padding: 1.4rem 1.4rem 1.2rem; border-radius: var(--raio); background: var(--agua); border: 2px solid var(--tinta); }
+/* Numa coluna só, a conta presa no topo cobriria o contato ao rolar. */
+@media (max-width: 860px) { .conta { position: static; } }
 .conta__vazia { margin: 0; color: var(--tinta-suave); }
 .conta h3 { font-size: 1.35rem; }
 .conta__estadia { margin: .3rem 0 1rem; color: var(--tinta-suave); font-size: .95rem; }
@@ -145,7 +147,8 @@ input[aria-invalid='true'] { border-color: var(--vermelho); }
 .conta__noites li span { display: block; font-size: .78rem; opacity: .8; }
 
 .contato { grid-area: contato; display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; margin: 0; padding: 1.4rem 0 0; border: 0; border-top: 2px solid var(--linha); min-width: 0; }
-.contato legend { float: left; width: 100%; padding: 0; font: 400 1.5rem/1.1 var(--display); }
+/* Com float, a legenda vira item do grid: ocupa a linha inteira. */
+.contato legend { float: left; width: 100%; grid-column: 1 / -1; padding: 0; font: 400 1.5rem/1.1 var(--display); }
 .contato label { display: grid; gap: .3rem; font-weight: 600; font-size: .95rem; }
 .contato label:first-of-type, .contato__mensagem, .contato .campo__erro, .contato button, .contato__nota { grid-column: 1 / -1; }
 .contato:disabled { opacity: .5; }

@@ -57,7 +57,7 @@ wix/
   conteudo.js         as coleções, os quartos, as temporadas e as fotos
   semear.mjs          prepara um site Wix novo com esse conteúdo
 tests/
-  orcamento.test.js   17 testes das regras de preço
+  orcamento.test.js   18 testes das regras de preço
   falsos/cms.js       os itens como o módulo do Wix devolve
 scripts/previa.mjs    prévia local com um CMS em memória
 ```

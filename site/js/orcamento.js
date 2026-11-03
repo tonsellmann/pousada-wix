@@ -119,7 +119,9 @@ export function orcar({ quarto, chegada, saida, hospedes, temporadas, hoje }) {
 
   const noites = datas.map((noite) => {
     const temporada = temporadaDaNoite(noite, temporadas);
-    return { noite, temporada: temporada.nome, nivel: nivel(temporada.fator), diaria: diariaNa(quarto, temporada), minimo: temporada.minimo, observacao: temporada.observacao };
+    // A observação da temporada padrão fala da tabela inteira ("fora das datas abaixo"), não da estadia.
+    const observacao = temporada.padrao ? '' : temporada.observacao;
+    return { noite, temporada: temporada.nome, nivel: nivel(temporada.fator), diaria: diariaNa(quarto, temporada), minimo: temporada.minimo, observacao };
   });
 
   const linhas = [];
