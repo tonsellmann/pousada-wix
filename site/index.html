@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pousada Barra Mansa · Caraíva, Bahia</title>
+<meta name="description" content="Quatro quartos na beira do rio, em Caraíva. Monte o orçamento com as datas da viagem e veja o preço de cada noite. Pousada fictícia, projeto conceito.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1f5fae">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource/caprasimo@5.2.7/files/caprasimo-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/figtree@5.2.10/files/figtree-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preconnect" href="https://static.wixstatic.com">
+<link rel="stylesheet" href="/css/estilo.css">
+<script type="module" src="/js/pagina.js"></script>
+</head>
+<body>
+<p class="conceito">Projeto conceito: a pousada é fictícia e os pedidos não são respondidos.</p>
+
+<header class="topo">
+  <a class="marca" href="#inicio" aria-label="Pousada Barra Mansa, início">
+    <svg class="marca__remo" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 32 30 10" /><path d="M27 6c4-1 8 3 7 7l-3 3-7-7z" /></svg>
+    <span>Barra Mansa</span>
+  </a>
+  <nav aria-label="Seções">
+    <a href="#quartos">Quartos</a>
+    <a href="#temporadas">Temporadas</a>
+    <a href="#chegar">Como chegar</a>
+    <a class="topo__orcar" href="#orcamento">Orçamento</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="abertura">
+    <img class="abertura__foto"
+      src="https://static.wixstatic.com/media/a7c136_aa9727c4bb3148a295f2bddfb1401225~mv2.webp/v1/fill/w_1600,h_1000,al_c,q_80/capa.webp"
+      srcset="https://static.wixstatic.com/media/a7c136_aa9727c4bb3148a295f2bddfb1401225~mv2.webp/v1/fill/w_800,h_1000,al_c,q_80/capa.webp 800w,
+              https://static.wixstatic.com/media/a7c136_aa9727c4bb3148a295f2bddfb1401225~mv2.webp/v1/fill/w_1600,h_1000,al_c,q_80/capa.webp 1600w,
+              https://static.wixstatic.com/media/a7c136_aa9727c4bb3148a295f2bddfb1401225~mv2.webp/v1/fill/w_2400,h_1300,al_c,q_80/capa.webp 2400w"
+      sizes="100vw" alt="Barcos coloridos ancorados no rio Caraíva, com coqueiros na outra margem" fetchpriority="high">
+    <div class="abertura__texto">
+      <p class="abertura__lugar">Caraíva, Bahia</p>
+      <h1>Do outro lado do rio, sem carro e sem pressa.</h1>
+      <p>Quatro quartos a vinte passos da água. Escolha as datas e veja quanto custa cada noite antes de falar com a gente.</p>
+      <a class="botao botao--amarelo" href="#orcamento">Montar orçamento</a>
+    </div>
+  </section>
+
+  <section class="secao" id="quartos" aria-labelledby="quartos-titulo">
+    <div class="secao__cabeca">
+      <h2 id="quartos-titulo">Quartos</h2>
+      <p>Preços da baixa temporada. Nas datas de festa, a diária sobe e o orçamento mostra quanto.</p>
+    </div>
+    <ul class="quartos" data-quartos aria-busy="true">
+      <li class="quarto quarto--carregando"></li>
+      <li class="quarto quarto--carregando"></li>
+      <li class="quarto quarto--carregando"></li>
+      <li class="quarto quarto--carregando"></li>
+    </ul>
+  </section>
+
+  <section class="secao secao--orcamento" id="orcamento" aria-labelledby="orcamento-titulo">
+    <div class="secao__cabeca">
+      <h2 id="orcamento-titulo">Monte seu orçamento</h2>
+      <p>O preço sai noite por noite: uma viagem que começa no Natal e termina no Réveillon paga cada noite na sua temporada.</p>
+    </div>
+
+    <form class="orcamento" data-orcamento novalidate>
+      <div class="orcamento__escolhas">
+        <fieldset class="campo campo--quartos">
+          <legend>Quarto</legend>
+          <div class="opcoes" data-opcoes-quarto></div>
+          <p class="campo__erro" data-erro="quarto" hidden></p>
+        </fieldset>
+
+        <fieldset class="campo campo--datas">
+          <legend>Datas</legend>
+          <div class="datas">
+            <label>Chegada <input type="date" name="chegada" required></label>
+            <label>Saída <input type="date" name="saida" required></label>
+          </div>
+          <p class="campo__erro" data-erro="datas" hidden></p>
+        </fieldset>
+
+        <div class="campo campo--hospedes">
+          <label for="hospedes">Hóspedes, contando as crianças</label>
+          <div class="contador">
+            <button type="button" data-hospedes="-1" aria-label="Um hóspede a menos">−</button>
+            <input id="hospedes" name="hospedes" type="number" inputmode="numeric" min="1" max="6" value="2">
+            <button type="button" data-hospedes="1" aria-label="Um hóspede a mais">+</button>
+          </div>
+          <p class="campo__erro" data-erro="hospedes" hidden></p>
+        </div>
+      </div>
+
+      <aside class="conta" aria-live="polite" data-conta>
+        <p class="conta__vazia">Escolha o quarto e as datas para ver o preço de cada noite.</p>
+      </aside>
+
+      <fieldset class="contato" data-contato disabled>
+        <legend>Para a pousada responder</legend>
+        <label>Nome <input name="nome" autocomplete="name" required maxlength="80"></label>
+        <label>WhatsApp com DDD <input name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(73) 99999-0000"></label>
+        <label>E-mail <input name="email" type="email" autocomplete="email" required></label>
+        <label class="contato__mensagem">Alguma coisa que a gente deva saber? <span class="opcional">(opcional)</span>
+          <textarea name="mensagem" rows="3" maxlength="600" placeholder="Horário de chegada, criança de colo, aniversário..."></textarea>
+        </label>
+        <p class="campo__erro" data-erro="contato" hidden></p>
+        <button class="botao botao--azul" type="submit">Pedir este orçamento</button>
+        <p class="contato__nota">Nada é cobrado agora. A pousada confirma a disponibilidade pelo WhatsApp.</p>
+      </fieldset>
+    </form>
+
+    <div class="enviado" data-enviado hidden tabindex="-1">
+      <h3>Pedido recebido</h3>
+      <p data-enviado-texto></p>
+      <button class="botao botao--contorno" type="button" data-novo>Fazer outro orçamento</button>
+    </div>
+  </section>
+
+  <section class="secao" id="temporadas" aria-labelledby="temporadas-titulo">
+    <div class="secao__cabeca">
+      <h2 id="temporadas-titulo">Temporadas</h2>
+      <p>A dona da pousada muda estas datas no painel do Wix, e o orçamento acompanha na hora.</p>
+    </div>
+    <ol class="temporadas" data-temporadas aria-busy="true"></ol>
+  </section>
+
+  <section class="secao secao--chegar" id="chegar" aria-labelledby="chegar-titulo">
+    <img src="https://static.wixstatic.com/media/a7c136_00d9d2d59623474a9b236bde6e31d79d~mv2.webp/v1/fill/w_900,h_1100,al_c,q_80/vila.webp"
+      alt="Rua estreita entre casas coloridas e vasos de plantas" loading="lazy" width="900" height="1100">
+    <div>
+      <h2 id="chegar-titulo">Caraíva não tem carro</h2>
+      <ol class="passos">
+        <li><strong>Até a margem do rio.</strong> De Porto Seguro são 2h de estrada até o estacionamento do outro lado.</li>
+        <li><strong>Canoa.</strong> A travessia leva cinco minutos e sai a toda hora, das 6h às 22h.</li>
+        <li><strong>A pé até a pousada.</strong> Trezentos metros de areia. Mande o horário que a gente busca a mala no carrinho de mão.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <p><strong>Pousada Barra Mansa</strong> é fictícia. Projeto conceito de Luís Antônio, feito em Wix Headless: os quartos, as temporadas e os pedidos ficam no CMS do Wix.</p>
+  <details>
+    <summary>Créditos das fotos</summary>
+    <ul>
+      <li>Barcos no rio: “Caraíva. Foto: Divulgação Porto Seguro”, de <a href="https://www.flickr.com/photos/41801340@N04/9713025144">turismobahia</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, recortada.</li>
+      <li>Chalé: <a href="https://wordpress.org/photos/photo/49668f8889/">appealdahal</a>, CC0.</li>
+      <li>Varanda: <a href="https://stocksnap.io/photo/patio-furniture-ZIU3AC46X4">Matt Bango</a>, CC0.</li>
+      <li>Casa com piscina: <a href="https://stocksnap.io/photo/pool-backyard-8512A55AD8">Vita Vilcina</a>, CC0.</li>
+      <li>Quarto: <a href="https://stocksnap.io/photo/house-interior-XCOZ3XTV7M">Tim Wright</a>, CC0.</li>
+      <li>Rua da vila: <a href="https://wordpress.org/photos/photo/69969c1baf/">Amanda Valverde Mora</a>, CC0.</li>
+    </ul>
+    <p>Fontes Caprasimo e Figtree, licença SIL Open Font License 1.1.</p>  </details>
+</footer>
+</body>
+</html>

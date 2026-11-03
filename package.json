@@ -1,0 +1,17 @@
+{
+  "name": "pousada-wix",
+  "private": true,
+  "type": "module",
+  "description": "Site de uma pousada fictícia em Caraíva, em Wix Headless: quartos e temporadas no CMS do Wix e orçamento noite a noite.",
+  "scripts": {
+    "test": "vitest run",
+    "previa": "node scripts/previa.mjs",
+    "semear": "node wix/semear.mjs"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

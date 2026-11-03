@@ -1,0 +1,3 @@
+node_modules/
+# Os módulos do CMS que o Wix instala no site (js/wix/) são do Wix, não deste projeto.
+site/js/wix/

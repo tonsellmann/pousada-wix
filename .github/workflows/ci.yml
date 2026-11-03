@@ -1,0 +1,18 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: npm test
+      # Os módulos do site importam uns aos outros pelo caminho; um erro de sintaxe derruba a página inteira.
+      - run: for f in site/js/*.js scripts/*.mjs wix/*.mjs wix/*.js; do node --check "$f"; done
